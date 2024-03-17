@@ -6,24 +6,29 @@ using System.Threading.Tasks;
 
 namespace MOD5
 {
-    public class HaloGeneric
+    class DataGeneric<T>
     {
-        public void SapaUser<T>(T userName)
+        T Data { get; set; }
+        public DataGeneric(T data)
         {
-            Console.WriteLine($"Halo user {userName}");
+            Data = data;
+        }
+        public void PrintData()
+        {
+            Console.WriteLine($"Data yang tersimpan adalah: {Data}");
         }
     }
-
     class Program
     {
+
+
         static void Main(string[] args)
         {
-            HaloGeneric halo = new HaloGeneric();
-
-
-            string namaPanggilan = "Fernando";
-            halo.SapaUser(namaPanggilan);
-            Console.Read();
+            DataGeneric<string> stringData = new DataGeneric<string>("Y");
+            stringData.PrintData();
+            DataGeneric<string> nimData = new DataGeneric<string>("1302223012");
+            nimData.PrintData();
+            Console.ReadLine();
         }
     }
 }
